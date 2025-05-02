@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella y Actual</title>
+    <link rel="shortcut icon" href="assets/img/contacto_ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-left" id="sidebar-icon"></i>
+            </button>
+            
+            <div class="sidebar-header">
+                <h3><i class="fas fa-store-alt"></i> <span>BELLA Y ACTUAL</span></h3>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                
+                <div class="menu-item" onclick="navigateTo('Historial_producto.html')">
+                    <i class="fas fa-boxes"></i>
+                    <span>Historial Productos</span>
+                </div>
+                
+                <div class="menu-item active" onclick="navigateTo('Historial_venta.html')">
+                    <i class="fas fa-receipt"></i>
+                    <span>Historial Ventas</span>
+                </div>
+                
+                <div class="menu-item" onclick="navigateTo('Historial_general.html')">
+                    <i class="fas fa-history"></i>
+                    <span>Historial General</span>
+                </div>
+                <div class="menu-item" onclick="navigateTo('detalle_venta.html')">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Detalle ventas</span>
+                </div>
+                
+                <a href="contacto.html" class="menu-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>HISTORIAL DE VENTAS</h2>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <span>Administrador</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- Filtros adaptados para ventas -->
+            <div class="filtros">
+                <div>
+                    <label for="id-venta">ID Venta:</label>
+                    <input type="text" id="id-venta" name="id-venta" placeholder="ID Venta" />
+                </div>
+                
+                <div>
+                    <label for="fecha-desde">Desde:</label>
+                    <input type="date" id="fecha-desde" name="fecha-desde" />
+                </div>
+                
+                <div>
+                    <label for="fecha-hasta">Hasta:</label>
+                    <input type="date" id="fecha-hasta" name="fecha-hasta" />
+                </div>
+                
+                <div>
+                    <label for="usuario">Vendedor:</label>
+                    <select id="usuario" name="usuario">
+                        <option value="">Todos</option>
+                        <option value="1">Laura</option>
+                        <option value="2">Carlos</option>
+                        <option value="3">Administrador</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="monto-minimo">Monto Mínimo:</label>
+                    <input type="number" id="monto-minimo" name="monto-minimo" placeholder="$" />
+                </div>
+                
+                <div>
+                    <label for="monto-maximo">Monto Máximo:</label>
+                    <input type="number" id="monto-maximo" name="monto-maximo" placeholder="$" />
+                </div>
+                <div class="filtros-actions">
+                    <button class="btn btn-primary" onclick="window.location.href='detalle_venta.html?id=ID_VENTA'">
+                        <i class="fas fa-eye"></i> Ver Detalles de una venta
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tabla de Historial de Ventas -->
+            <div class="tabla-container">
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>ID Historial</th>
+                            <th>ID Venta</th>
+                            <th>Fecha</th>
+                            <th>Vendedor</th>
+                            <th>Total Venta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>105</td>
+                            <td>2025-05-15 14:30:22</td>
+                            <td>Laura (ID: 2)</td>
+                            <td>$120,000</td>
+                            <td>
+                                <button class="btn-detalle" onclick="verDetalle(105)">
+                                    <i class="fas fa-eye"></i> Detalle
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>106</td>
+                            <td>2025-05-15 15:45:10</td>
+                            <td>Administrador (ID: 1)</td>
+                            <td>$85,500</td>
+                            <td>
+                                <button class="btn-detalle" onclick="verDetalle(106)">
+                                    <i class="fas fa-eye"></i> Detalle
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>107</td>
+                            <td>2025-05-16 10:15:33</td>
+                            <td>Carlos (ID: 3)</td>
+                            <td>$210,750</td>
+                            <td>
+                                <button class="btn-detalle" onclick="verDetalle(107)">
+                                    <i class="fas fa-eye"></i> Detalle
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>108</td>
+                            <td>2025-05-16 16:20:45</td>
+                            <td>Laura (ID: 2)</td>
+                            <td>$64,300</td>
+                            <td>
+                                <button class="btn-detalle" onclick="verDetalle(108)">
+                                    <i class="fas fa-eye"></i> Detalle
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <footer>
+                <p>Derechos reservados &copy; 2025 Bella y Actual</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Función para navegar entre páginas
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+        
+        // Función para ver detalles de venta
+        function verDetalle(idVenta) {
+            // Aquí implementarías la lógica para ver el detalle
+            console.log('Mostrando detalle de venta ID:', idVenta);
+            // window.location.href = `detalle_venta.html?id=${idVenta}`;
+            alert(`Mostrando detalle de venta ID: ${idVenta}`);
+        }
+        
+        // Filtrado de la tabla
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtros = [
+                document.getElementById('fecha-desde'),
+                document.getElementById('fecha-hasta'),
+                document.getElementById('id-venta'),
+                document.getElementById('usuario'),
+                document.getElementById('monto-minimo'),
+                document.getElementById('monto-maximo')
+            ];
+            
+            filtros.forEach(filter => {
+                if(filter) {
+                    filter.addEventListener('change', aplicarFiltros);
+                }
+            });
+            
+            function aplicarFiltros() {
+                // Implementar lógica de filtrado aquí
+                console.log('Aplicando filtros a historial de ventas...');
+            }
+        });
+        
+        // Establecer la fecha actual como valor por defecto para "hasta"
+        document.addEventListener('DOMContentLoaded', function() {
+            const hoy = new Date().toISOString().split('T')[0];
+            document.getElementById('fecha-hasta').value = hoy;
+        });
+    </script>
+
+    <script src="js/common.js"> // Función para colapsar/expandir el sidebar</script> 
+
+    <script> //Establece la fecha actual como valor por defecto en filtros de fecha "hasta/fin"
+        // Función para ver detalles (usada en historial_venta.html)
+        function verDetalle(idVenta) {
+            window.location.href = `detalle_venta.html?id=${idVenta}`;
+        }
+        
+        // Función para aplicar filtros
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar fecha actual como valor por defecto para filtros de fecha
+            const hoy = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                if(input.id.includes('fin') || input.id.includes('hasta')) {
+                    input.value = hoy;
+                }
+            });
+            
+            // Aplicar filtros al cambiar cualquier campo
+            document.querySelectorAll('.filtros input, .filtros select').forEach(element => {
+                element.addEventListener('change', function() {
+                    // Aquí iría la lógica para filtrar los datos
+                    console.log('Filtrando...', this.name, this.value);
+                    // En una implementación real, harías una petición al servidor
+                    // o filtrarías los datos localmente
+                });
+            });
+        });
+    </script>
+</body>
+</html>

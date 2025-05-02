@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella y Actual</title>
+    <link rel="shortcut icon" href="assets/img/contacto_ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-left" id="sidebar-icon"></i>
+            </button>
+            
+            <div class="sidebar-header">
+                <h3><i class="fas fa-store-alt"></i> <span>BELLA Y ACTUAL</span></h3>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                
+                <a href="Historial_producto.html" class="menu-item active">
+                    <i class="fas fa-boxes"></i>
+                    <span>Historial Productos</span>
+                </a>
+                
+                <a href="Historial_venta.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>Historial Ventas</span>
+                </a>
+                
+                <a href="Historial_general.html" class="menu-item">
+                    <i class="fas fa-history"></i>
+                    <span>Historial General</span>
+                </a>
+                
+                <a href="detalle_venta.html" class="menu-item">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Detalle Ventas</span>
+                </a>
+                
+                <a href="contacto.html" class="menu-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>HISTORIAL PRODUCTO</h2>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <span>Administrador</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- Filtros -->
+            <div class="filtros">
+                <div>
+                    <label for="fecha-desde">Desde:</label>
+                    <input type="date" id="fecha-desde" name="fecha-desde" />
+                </div>
+            
+                <div>
+                    <label for="id-producto"># Producto:</label>
+                    <input type="text" id="id-producto" name="id-producto" placeholder="ID Producto" />
+                </div>
+                <div>
+                    <label for="usuario">Usuario:</label>
+                    <select id="usuario" name="usuario">
+                        <option value="">Todos</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Laura</option>
+                        <option value="3">Carlos</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tipo-cambio">Tipo de Cambio:</label>
+                    <select id="tipo-cambio" name="tipo-cambio">
+                        <option value="">Todos</option>
+                        <option value="Ingreso">Ingreso</option>
+                        <option value="Actualizacion">Actualización</option>
+                        <option value="Eliminacion">Eliminación</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Tabla de Historial de Productos -->
+            <div class="tabla-container">
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th># Movimiento</th>
+                            <th>Fecha Cambio</th>
+                            <th>Id Rol</th>
+                            <th>Usuario</th>
+                            <th>Id Producto</th>
+                            <th>Producto</th>
+                            <th>Marca</th>
+                            <th>Tipo de cambio</th>
+                            <th>Cantidad</th>
+                            <th>Descripción Operación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2025-04-30 14:30</td>
+                            <td>2</td>
+                            <td>Laura</td>
+                            <td>PRD001</td>
+                            <td>Teclado</td>
+                            <td>Logitech</td>
+                            <td>Periférico</td>
+                            <td>150</td>
+                            <td>Compra inicial de stock</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2025-05-02 09:15</td>
+                            <td>1</td>
+                            <td>Admin</td>
+                            <td>PRD045</td>
+                            <td>Labial</td>
+                            <td>MAC</td>
+                            <td>Maquillaje</td>
+                            <td>-5</td>
+                            <td>Venta a cliente</td>
+                        </tr>
+                        <tr>
+                            <td>3222</td>
+                            <td>2025-05-01 16:20</td>
+                            <td>3</td>
+                            <td>Carlos</td>
+                            <td>PRD078</td>
+                            <td>Crema Hidratante</td>
+                            <td>Nivea</td>
+                            <td>Cuidado Personal</td>
+                            <td>30</td>
+                            <td>Reabastecimiento</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2025-04-28 11:45</td>
+                            <td>1</td>
+                            <td>Admin</td>
+                            <td>PRD112</td>
+                            <td>Esmalte</td>
+                            <td>OPI</td>
+                            <td>Maquillaje</td>
+                            <td>-12</td>
+                            <td>Venta mayorista</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <footer>
+                <p>Derechos reservados &copy; 2025 Bella y Actual</p>
+            </footer>
+        </div>
+    </div>
+
+    
+    <script src="js/common.js">// Función para colapsar/expandir el sidebar</script> 
+</body>
+</html>
+
+
+// Aquí puedes agregar la funcionalidad JavaScript para:
+// - Filtrar la tabla según los criterios seleccionados
+// - Paginación si es necesaria
+// - Ordenamiento por columnas

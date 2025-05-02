@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella y Actual</title>
+    <link rel="shortcut icon" href="assets/img/contacto_ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-left" id="sidebar-icon"></i>
+            </button>
+            
+            <div class="sidebar-header">
+                <h3><i class="fas fa-store-alt"></i> <span>BELLA Y ACTUAL</span></h3>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                
+                <a href="Historial_producto.html" class="menu-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Historial Productos</span>
+                </a>
+                
+                <a href="Historial_venta.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>Historial Ventas</span>
+                </a>
+                
+                <a href="Historial_general.html" class="menu-item">
+                    <i class="fas fa-history"></i>
+                    <span>Historial General</span>
+                </a>
+                
+                <a href="detalle_venta.html" class="menu-item active">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Detalle Ventas</span>
+                </a>
+                
+                <a href="contacto.html" class="menu-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>DETALLE DE VENTA #<span id="numero-venta">108</span></h2>
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <span>Administrador</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="venta-container">
+                <!-- Tarjeta de información de venta -->
+                <div class="venta-card">
+                    <div class="venta-info">
+                        <div class="info-item">
+                            <span class="info-label">ID Venta:</span>
+                            <span class="info-value" id="id-venta">#108</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Fecha:</span>
+                            <span class="info-value" id="fecha-venta">2025-05-16 16:20:45</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Vendedor:</span>
+                            <span class="info-value" id="vendedor">Laura (ID: 2)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Forma de Pago:</span>
+                            <span class="info-value" id="forma-pago">Tarjeta de Crédito</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Estado:</span>
+                            <span class="info-value" id="estado-venta">Completada</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta de búsqueda -->
+                <div class="busqueda-card">
+                    <div class="busqueda-header">
+                        <i class="fas fa-search"></i> Buscar Venta
+                    </div>
+                    <div class="busqueda-form">
+                        <input type="text" id="buscar-venta" placeholder="Ingrese ID de venta">
+                        <button class="btn btn-primary" onclick="buscarVenta()">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabla de Detalle de Venta -->
+            <div class="tabla-container">
+                <table class="tabla-detalle">
+                    <thead>
+                        <tr>
+                            <th>Id Detalle</th>
+                            <th>Id Venta</th>
+                            <th>Id Producto</th>
+                            <th>Producto</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-right">Precio Unitario</th>
+                            <th class="text-right">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>45</td>
+                            <td>vt345</td>
+                            <td>PRD112</td>
+                            <td>Esmalte de uñas OPI - Rojo Pasión</td>
+                            <td class="text-center">2</td>
+                            <td class="text-right">$18,500</td>
+                            <td class="text-right">$37,000</td>
+                        </tr>
+                        <tr>
+                            <td>46</td>
+                            <td>vt345</td>
+                            <td>PRD078</td>
+                            <td>Crema Hidratante Nivea - Coco</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right">$15,300</td>
+                            <td class="text-right">$15,300</td>
+                        </tr>
+                        <tr>
+                            <td>47</td>
+                            <td>vt345</td>
+                            <td>PRD045</td>
+                            <td>Labial MAC - Matte Ruby Woo</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right">$12,000</td>
+                            <td class="text-right">$12,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Resumen de la venta -->
+            <div class="resumen-venta">
+                <div class="total-venta">
+                    <span class="total-label">TOTAL VENTA:</span>
+                    <span class="total-value" id="total-venta">$64,300</span>
+                </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-print" onclick="imprimirDetalle()">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+                <button class="btn btn-primary" onclick="volverAHistorial()">
+                    <i class="fas fa-arrow-left"></i> Volver al Historial
+                </button>
+            </div>
+            
+            <footer>
+                <p>Derechos reservados &copy; 2025 Bella y Actual</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Obtener parámetros de la URL
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulamos obtener el ID de venta de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const idVenta = urlParams.get('id') || '108'; // Valor por defecto para demo
+            
+            // Actualizar el número de venta en el título
+            document.getElementById('numero-venta').textContent = idVenta;
+            
+            // Aquí iría una llamada AJAX para obtener los detalles de la venta
+            // fetch(`/api/ventas/${idVenta}`)
+            //   .then(response => response.json())
+            //   .then(data => cargarDetalleVenta(data));
+            
+            console.log('Cargando detalle para venta ID:', idVenta);
+        });
+        
+        // Función para cargar los datos de la venta
+        function cargarDetalleVenta(data) {
+            // Implementar la carga de datos reales desde el backend
+            // document.getElementById('fecha-venta').textContent = data.fecha;
+            // document.getElementById('vendedor').textContent = `${data.vendedor.nombre} (ID: ${data.vendedor.id})`;
+            // etc...
+        }
+        
+        // Función para imprimir el detalle
+        function imprimirDetalle() {
+            window.print();
+        }
+        
+        // Función para volver al historial
+        function volverAHistorial() {
+            window.location.href = 'Historial_venta.html';
+        }
+        
+        // Función para navegar entre páginas
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+    <script src="js/common.js"> // Función para colapsar/expandir el sidebar </script> 
+
+
+</body>
+</html>
