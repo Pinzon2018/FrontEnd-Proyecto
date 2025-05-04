@@ -28,7 +28,7 @@ export default function Navbar({ onLogout }) {
     const drawer = (
         <div>
             <List>
-                {['Inicio', 'Perfil', 'Usuarios', 'Categorias', 'Proveedores', 'Subcategorias', 'Productos'].map((text) => (
+                {['Inicio', 'Perfil', 'Usuarios', 'Categorias', 'Proveedores', 'Subcategorias', 'Productos', 'Ventas', 'Historial'].map((text) => (
                     <ListItem button component={LinkBehavior} to={`/${normalizeText(text)}`} key={text}>
                         <ListItemText primary={text} />
                     </ListItem>
@@ -62,7 +62,7 @@ export default function Navbar({ onLogout }) {
 
                     {/* Navegación horizontal en desktop */}
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-                        {['Inicio', 'Perfil', 'Usuarios', 'Categorias', 'Proveedores', 'Subcategorias', 'Productos'].map((text) => (
+                        {['Inicio', 'Perfil', 'Usuarios', 'Categorias', 'Proveedores', 'Subcategorias', 'Productos', 'Ventas', 'Historial'].map((text) => (
                             <Button color="inherit" component={LinkBehavior} to={`/${normalizeText(text)}`} key={text}>
                                 {text}
                             </Button>

@@ -13,6 +13,7 @@ const RegistroProducto = () => {
     const [Porcentaje_Ganancia, setPorcentaje_Ganancia] = useState('');
     const [Unidades_Totales_Prod, setUnidades_Totales_Prod] = useState('');
     const [Estado_Prod, setEstado_Prod] = useState('');
+    const [Precio_Bruto_Prod, setPrecio_Bruto_Prod] = useState('');
     const [Marca_Prod, setMarca_Prod] = useState('');
     const [proveedor, setproveedor] = useState('');
     const [Proveedores, setProveedores] = useState([]);
@@ -54,7 +55,7 @@ const RegistroProducto = () => {
         setError('');
         setIsLoading(true);
 
-        if(!Nombre_Prod && !Medida_Prod && !Unidad_Medida_Prod && !Precio_Neto_Unidad_Prod && !Iva_Prod && !Porcentaje_Ganancia && !Unidades_Totales_Prod && !Estado_Prod && !Marca_Prod && !proveedor && !subcategoria) {
+        if(!Nombre_Prod && !Medida_Prod && !Unidad_Medida_Prod && !Precio_Neto_Unidad_Prod && !Iva_Prod && !Porcentaje_Ganancia && !Unidades_Totales_Prod && !Estado_Prod && !Marca_Prod && !proveedor && !subcategoria && !Precio_Bruto_Prod) {
             setError('Por favor, complete todos los campos.');
             setIsLoading(false);
             return;
@@ -73,6 +74,7 @@ const RegistroProducto = () => {
                 Unidades_Totales_Prod,
                 Estado_Prod,
                 Marca_Prod,
+                Precio_Bruto_Prod,
                 FK_Id_Proveedor: proveedor,
                 FK_Id_Subcategoria: subcategoria
             }, {
@@ -89,6 +91,7 @@ const RegistroProducto = () => {
             setUnidades_Totales_Prod('');
             setEstado_Prod('');
             setMarca_Prod('');
+            setPrecio_Bruto_Prod('');
             setproveedor('');
             setsubcategoria('');
         } catch (error) {
@@ -144,11 +147,11 @@ const RegistroProducto = () => {
             />
             </div>
             <div>
-            <label>Precio Neto:</label>
+            <label>Precio Bruto:</label>
             <input
                 type="text"
-                value={Precio_Neto_Unidad_Prod}
-                onChange={(e) => setPrecio_Neto_Unidad_Prod(e.target.value)}
+                value={Precio_Bruto_Prod}
+                onChange={(e) => setPrecio_Bruto_Prod(e.target.value)}
                 required
             />
             </div>

@@ -33,7 +33,7 @@ const Categorias = () => {
       .catch(error => {
         console.error('Error al obtener las categorias', error);
         if (error.response && error.response.status === 401) {
-          navigate('/login');
+          navigate('/');
         }
       })
       .finally(() => {

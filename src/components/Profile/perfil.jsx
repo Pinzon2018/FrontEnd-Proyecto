@@ -31,7 +31,7 @@ const Profile = () => {
         console.error('Error al obtener el perfil', error);
         if (error.response && error.response.status === 401) {
           console.log('Token inválido. Por favor, inicia sesión nuevamente.');
-          navigate('/login');
+          navigate('/');
         } else {
           console.log('Error al obtener el perfil. Intenta nuevamente más tarde.');
         }

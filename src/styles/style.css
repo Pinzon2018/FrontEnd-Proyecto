@@ -428,3 +428,75 @@ h2 {
     font-size: 14px;
     margin-top: 10px;
   }
+
+  .venta-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 25px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .venta-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .venta-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .venta-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .venta-form select,
+  .venta-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn-add,
+  .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #7C3AED;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-add:hover,
+  .btn-submit:hover {
+    background-color: #7C3AED;
+  }
+  
+  .detalle-venta {
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+  
+  .detalle-venta ul {
+    padding-left: 20px;
+  }
+  
+  .detalle-venta li {
+    margin-bottom: 5px;
+    color: #444;
+  }
+  

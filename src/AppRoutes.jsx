@@ -24,6 +24,8 @@ import RegistroProducto from "./components/Productos/RegistroProductos";
 import EditarProducto from "./components/Productos/EditarProductos";
 import EliminarProducto from "./components/Productos/EliminarProducto";
 import SwaggerDocs from "./components/Swagger/SwaggerDocs";
+import GenerarVenta from "./components/Venta/GenerarVenta";
+import Ventas from "./components/Venta/Ventas";
 
 function AppRoutes() {
   const location = useLocation();
@@ -57,6 +59,8 @@ function AppRoutes() {
           <Route path="/editar-producto/:Id_Producto" element={<EditarProducto />} />
           <Route path="/eliminar-producto/:Id_Producto" element={<EliminarProducto />} />
           <Route path="/docs" element={<SwaggerDocs />} />
+          <Route path="/ventas" element={<GenerarVenta />} />
+          <Route path="/historial" element={<Ventas />} />
         </Routes>
       </div>
     </>
