@@ -77,21 +77,20 @@ const EditarProducto = () => {
         try {
             await axios.put(`http://127.0.0.1:5000/productos/${Id_Producto}`, {
                 Nombre_Prod: producto.Nombre_Prod,
-                Medida_Prod: producto.Medida_Prod,
+                Medida_Prod: parseFloat(producto.Medida_Prod),
                 Unidad_Medida_Prod: producto.Unidad_Medida_Prod,
-                Precio_Bruto_Prod: producto.Precio_Bruto_Prod,
-                Precio_Neto_Unidad_Prod: producto.Precio_Neto_Unidad_Prod,
-                Iva_Prod: producto.Iva_Prod,
-                Porcentaje_Ganancia: producto.Porcentaje_Ganancia,
-                Unidades_Totales_Prod: producto.Unidades_Totales_Prod,
+                Precio_Bruto_Prod: parseFloat(producto.Precio_Bruto_Prod),
+                Precio_Neto_Unidad_Prod: parseFloat(producto.Precio_Neto_Unidad_Prod),
+                Iva_Prod: parseFloat(producto.Iva_Prod),
+                Porcentaje_Ganancia: parseFloat(producto.Porcentaje_Ganancia),
+                Unidades_Totales_Prod: parseInt(producto.Unidades_Totales_Prod),
                 Estado_Prod: producto.Estado_Prod,
                 Marca_Prod: producto.Marca_Prod,
-                FK_Id_Proveedor: producto.proveedor,
-                FK_Id_Subcategoria: producto.subcategoria
+                FK_Id_Proveedor: parseInt(producto.proveedor),
+                FK_Id_Subcategoria: parseInt(producto.subcategoria)
             }, {
                 headers: { Authorization: `Bearer ${token}` }
-            }
-            );
+            });
             navigate('/productos');
         } catch (err) {
             console.error(err);
