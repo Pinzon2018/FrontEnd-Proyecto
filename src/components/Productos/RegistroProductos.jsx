@@ -7,7 +7,7 @@ const RegistroProducto = () => {
     const navigate = useNavigate();
     const [Nombre_Prod, setNombre_Prod] = useState('');
     const [Medida_Prod, setMedida_Prod] = useState('');
-    const [Unidad_Medida_Prod, setUnidad_Medida_Prod] = useState('');
+    // const [Unidad_Medida_Prod, setUnidad_Medida_Prod] = useState('');
     const [Precio_Neto_Unidad_Prod, setPrecio_Neto_Unidad_Prod] = useState('');
     const [Iva_Prod, setIva_Prod] = useState('');
     const [Porcentaje_Ganancia, setPorcentaje_Ganancia] = useState('');
@@ -15,10 +15,12 @@ const RegistroProducto = () => {
     const [Estado_Prod, setEstado_Prod] = useState('');
     const [Precio_Bruto_Prod, setPrecio_Bruto_Prod] = useState('');
     const [Marca_Prod, setMarca_Prod] = useState('');
-    const [proveedor, setproveedor] = useState('');
-    const [Proveedores, setProveedores] = useState([]);
-    const [subcategoria, setsubcategoria] = useState('');
-    const [Subcategorias, setSubcategorias] = useState([]);
+    const [Proveedor, setProveedor] = useState('');
+    const [Categoria, setCategoria] = useState('');
+    // const [proveedor, setproveedor] = useState('');
+    // const [Proveedores, setProveedores] = useState([]);
+    // const [subcategoria, setsubcategoria] = useState('');
+    // const [Subcategorias, setSubcategorias] = useState([]);
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -55,7 +57,7 @@ const RegistroProducto = () => {
         setError('');
         setIsLoading(true);
 
-        if(!Nombre_Prod && !Medida_Prod && !Unidad_Medida_Prod && !Precio_Neto_Unidad_Prod && !Iva_Prod && !Porcentaje_Ganancia && !Unidades_Totales_Prod && !Estado_Prod && !Marca_Prod && !proveedor && !subcategoria && !Precio_Bruto_Prod) {
+        if(!Nombre_Prod && !Medida_Prod && !Precio_Neto_Unidad_Prod && !Iva_Prod && !Porcentaje_Ganancia && !Unidades_Totales_Prod && !Estado_Prod && !Marca_Prod && !Proveedor && !Categoria && !Precio_Bruto_Prod) {
             setError('Por favor, complete todos los campos.');
             setIsLoading(false);
             return;
@@ -67,7 +69,7 @@ const RegistroProducto = () => {
             const response = await axios.post('http://127.0.0.1:5000/productos', {
                 Nombre_Prod,
                 Medida_Prod,
-                Unidad_Medida_Prod,
+                // Unidad_Medida_Prod,
                 Precio_Neto_Unidad_Prod,
                 Iva_Prod,
                 Porcentaje_Ganancia,
@@ -75,8 +77,8 @@ const RegistroProducto = () => {
                 Estado_Prod,
                 Marca_Prod,
                 Precio_Bruto_Prod,
-                FK_Id_Proveedor: proveedor,
-                FK_Id_Subcategoria: subcategoria
+                Proveedor,
+                Categoria
             }, {
                 headers: { Authorization: `Bearer ${token}` } 
             });
@@ -84,7 +86,7 @@ const RegistroProducto = () => {
             navigate('/productos')
             setNombre_Prod('');
             setMedida_Prod('');
-            setUnidad_Medida_Prod('');
+            // setUnidad_Medida_Prod('');
             setPrecio_Neto_Unidad_Prod('');
             setIva_Prod('');
             setPorcentaje_Ganancia('');
@@ -92,8 +94,8 @@ const RegistroProducto = () => {
             setEstado_Prod('');
             setMarca_Prod('');
             setPrecio_Bruto_Prod('');
-            setproveedor('');
-            setsubcategoria('');
+            setProveedor('');
+            setCategoria('');
         } catch (error) {
             console.error('Error al registrar el producto', error);
             if (error.response) {
@@ -137,7 +139,7 @@ const RegistroProducto = () => {
                 required
             />
             </div>
-            <div>
+            {/* <div>
             <label>Unidad de Medida:</label>
             <input
                 type="text"
@@ -145,7 +147,7 @@ const RegistroProducto = () => {
                 onChange={(e) => setUnidad_Medida_Prod(e.target.value)}
                 required
             />
-            </div>
+            </div> */}
             <div>
             <label>Precio Bruto:</label>
             <input
@@ -200,7 +202,25 @@ const RegistroProducto = () => {
                 required
             />
             </div>
-            <div className="select-container"> 
+            <div>
+            <label>Proveedor:</label>
+            <input
+                type="text"
+                value={Proveedor}
+                onChange={(e) => setProveedor(e.target.value)}
+                required
+            />
+            </div>
+            <div>
+            <label>Categoria:</label>
+            <input
+                type="text"
+                value={Categoria}
+                onChange={(e) => setCategoria(e.target.value)}
+                required
+            />
+            </div>
+            {/* <div className="select-container"> 
                 <label className="form-label">Proveedor:</label>
                 <select value={proveedor} onChange={(e) => setproveedor(e.target.value)} required>
                     <option key="default" value="" disabled>Seleccione un proveedor</option>
@@ -225,7 +245,7 @@ const RegistroProducto = () => {
                         </option>
                     ))}
                 </select>
-            </div>
+            </div> */}
   
             <button type="submit">Registrar</button>
         </form>

@@ -9,8 +9,8 @@ const EditarProducto = () => {
     const navigate = useNavigate();
 
     const [ producto, setProducto ] = useState(null);
-    const [ proveedores, setProveedores ] = useState([]);
-    const [ subcategorias, setSubcategorias ] = useState([]);
+    // const [ proveedores, setProveedores ] = useState([]);
+    // const [ subcategorias, setSubcategorias ] = useState([]);
     const [ error, setError ] = useState('');
     const [ loading, setLoading ] = useState(true);
 
@@ -35,31 +35,31 @@ const EditarProducto = () => {
             }
         };
 
-        const fetchProveedores = async () => {
-            try {
-                const res = await axios.get('http://127.0.0.1:5000/proveedores', {
-                    headers: { Authorization: `Bearer ${token}` },
-                });
-                setProveedores(res.data);
-            }catch {
-                console.error('Error al cargar proveedores.')
-            }
-        }
+        // const fetchProveedores = async () => {
+        //     try {
+        //         const res = await axios.get('http://127.0.0.1:5000/proveedores', {
+        //             headers: { Authorization: `Bearer ${token}` },
+        //         });
+        //         setProveedores(res.data);
+        //     }catch {
+        //         console.error('Error al cargar proveedores.')
+        //     }
+        // }
 
-        const fetchSubcategoria = async () => {
-            try {
-                const res = await axios.get('http://127.0.0.1:5000/subcategorias', {
-                    headers: { Authorization: `Bearer ${token}` },
-                });
-                setSubcategorias(res.data);
-            } catch {
-                console.error('Error al obtener Subcategorias.')
-            }
-        }
+        // const fetchSubcategoria = async () => {
+        //     try {
+        //         const res = await axios.get('http://127.0.0.1:5000/subcategorias', {
+        //             headers: { Authorization: `Bearer ${token}` },
+        //         });
+        //         setSubcategorias(res.data);
+        //     } catch {
+        //         console.error('Error al obtener Subcategorias.')
+        //     }
+        // }
 
         fetchProducto();
-        fetchProveedores();
-        fetchSubcategoria();
+        // fetchProveedores();
+        // fetchSubcategoria();
 
     }, [Id_Producto, navigate]);
 
@@ -78,7 +78,7 @@ const EditarProducto = () => {
             await axios.put(`http://127.0.0.1:5000/productos/${Id_Producto}`, {
                 Nombre_Prod: producto.Nombre_Prod,
                 Medida_Prod: parseFloat(producto.Medida_Prod),
-                Unidad_Medida_Prod: producto.Unidad_Medida_Prod,
+                // Unidad_Medida_Prod: producto.Unidad_Medida_Prod,
                 Precio_Bruto_Prod: parseFloat(producto.Precio_Bruto_Prod),
                 Precio_Neto_Unidad_Prod: parseFloat(producto.Precio_Neto_Unidad_Prod),
                 Iva_Prod: parseFloat(producto.Iva_Prod),
@@ -86,8 +86,10 @@ const EditarProducto = () => {
                 Unidades_Totales_Prod: parseInt(producto.Unidades_Totales_Prod),
                 Estado_Prod: producto.Estado_Prod,
                 Marca_Prod: producto.Marca_Prod,
-                FK_Id_Proveedor: parseInt(producto.proveedor),
-                FK_Id_Subcategoria: parseInt(producto.subcategoria)
+                Proveedor: producto.Proveedor,
+                Categoria: producto.Categoria
+                // FK_Id_Proveedor: parseInt(producto.proveedor),
+                // FK_Id_Subcategoria: parseInt(producto.subcategoria)
             }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -127,7 +129,7 @@ const EditarProducto = () => {
                     required
                 />
             </div>
-            <div>
+            {/* <div>
                 <label>Unidad de Medida:</label>
                 <input
                     type="text"
@@ -136,7 +138,7 @@ const EditarProducto = () => {
                     onChange={handleChange}
                     required
                 />
-            </div>
+            </div> */}
             <div>
                 <label>Precio Neto:</label>
                 <input
@@ -196,9 +198,31 @@ const EditarProducto = () => {
                     onChange={handleChange}
                     required
                 />
+            </div>  
+
+            <div>
+                <label>Proveedor:</label>
+                <input
+                    type="text"
+                    name="Proveedor"
+                    value={producto.Proveedor || ''}
+                    onChange={handleChange}
+                    required
+                />
+            </div>  
+
+            <div>
+                <label>Categoria:</label>
+                <input
+                    type="text"
+                    name="Categoria"
+                    value={producto.Categoria || ''}
+                    onChange={handleChange}
+                    required
+                />
             </div>      
 
-            <div className="select-container">
+            {/* <div className="select-container">
                 <label className="form-label">Proveedor:</label>
                 <select
                     name="proveedor"
@@ -213,9 +237,9 @@ const EditarProducto = () => {
                         </option>
                     ))}
                 </select>
-            </div>      
+            </div>       */}
 
-            <div className="select-container">
+            {/* <div className="select-container">
                 <label className="form-label">Subcategoría:</label>
                 <select
                     name="subcategoria"
@@ -230,7 +254,7 @@ const EditarProducto = () => {
                         </option>
                     ))}
                 </select>
-            </div>      
+            </div>       */}
 
             <button type="submit">Guardar Cambios</button>
         </form>

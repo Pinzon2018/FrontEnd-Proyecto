@@ -56,7 +56,7 @@ const Productos = () => {
                   <th>ID</th>
                   <th>Producto</th>
                   <th>Medida</th>
-                  <th>Unidad de medida</th>
+                  {/* <th>Unidad de medida</th> */}
                   <th>Precio</th>
                   <th>Iva</th>
                   <th>Ganancia</th>
@@ -64,7 +64,7 @@ const Productos = () => {
                   <th>Estado</th>
                   <th>Marca</th>
                   <th>Proveedor</th>
-                  <th>Subcategoria</th>
+                  <th>Categoria</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -75,15 +75,15 @@ const Productos = () => {
                     <td>{producto.Id_Producto}</td>
                     <td>{producto.Nombre_Prod}</td>
                     <td>{producto.Medida_Prod}</td>
-                    <td>{producto.Unidad_Medida_Prod}</td>
+                    {/* <td>{producto.Unidad_Medida_Prod}</td> */}
                     <td>{producto.Precio_Neto_Unidad_Prod}</td>
                     <td>{producto.Iva_Prod}</td>
                     <td>{producto.Porcentaje_Ganancia}</td>
                     <td>{producto.Unidades_Totales_Prod}</td>
                     <td>{producto.Estado_Prod}</td>
                     <td>{producto.Marca_Prod}</td>
-                    <td>{producto.proveedor.Nombre_Prov}</td>
-                    <td>{producto.subcategoria.Nombre_Subcategoria}</td>
+                    <td>{producto.Proveedor}</td>
+                    <td>{producto.Categoria}</td>
                     <td>
                       <button onClick={() => navigate(`/editar-producto/${producto.Id_Producto}`)}>
                           <EditIcon/>
