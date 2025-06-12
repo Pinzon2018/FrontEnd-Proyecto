@@ -83,14 +83,13 @@ const GenerarVenta = () => {
       <form onSubmit={handleSubmit} className="venta-form">
         <div className="form-group">
           <label>Producto</label>
-          <select value={productoId} onChange={(e) => setProductoId(e.target.value)} required>
-            <option value="">Seleccionar producto</option>
-            {productos.map(producto => (
-              <option key={producto.Id_Producto} value={producto.Id_Producto}>
-                {producto.Nombre_Prod}
-              </option>
-            ))}
-          </select>
+            <input
+            type="number"
+            value={productoId} 
+            onChange={(e) => setProductoId(e.target.value)}
+            required
+            min="1"
+          />
         </div>
 
         <div className="form-group">

@@ -28,7 +28,7 @@ export default function Navbar({ onLogout }) {
     const drawer = (
         <div>
             <List>
-                {['Inicio', 'Perfil', 'Usuarios', 'Categorias', 'Proveedores', 'Subcategorias', 'Productos', 'Ventas', 'Historial'].map((text) => (
+                {['Inicio', 'Perfil', 'Usuarios', 'Categorias', 'Proveedores', 'Subcategorias', 'Productos', 'POS', 'Historial'].map((text) => (
                     <ListItem button component={LinkBehavior} to={`/${normalizeText(text)}`} key={text}>
                         <ListItemText primary={text} />
                     </ListItem>

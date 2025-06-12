@@ -43,7 +43,7 @@ const RegistroSubcategoria = () => {
             const response = await axios.post('http://127.0.0.1:5000/subcategorias', {
                 Nombre_Subcategoria,
                 Descripcion_Subcategoria,
-                Id_Categoria: categoria,
+                Id_Categoria: parseInt(categoria, 10),
             }, {
                 headers: { Authorization: `Bearer ${token}` }
             });

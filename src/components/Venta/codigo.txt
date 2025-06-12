@@ -1,0 +1,11 @@
+<select value={productoId} onChange={(e) => setProductoId(e.target.value)} required>
+            <option value="">Seleccionar producto</option>
+            {productos.map(producto => ( 
+              <input
+               type="number"
+              />
+              <option key={producto.Id_Producto} value={producto.Id_Producto}>
+                {producto.Nombre_Prod}
+              </option>
+            ))}
+          </select>

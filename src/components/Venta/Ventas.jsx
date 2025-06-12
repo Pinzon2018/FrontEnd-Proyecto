@@ -10,7 +10,7 @@ const Ventas = () => {
   const navigate = useNavigate();
 
   const formatearCOP = (valor) => {
-    return valor.toLocaleString('es-CO', {
+    return valor.toLocaleString('es-CO', { 
       style: 'currency',
       currency: 'COP',
       minimumFractionDigits: 2,
